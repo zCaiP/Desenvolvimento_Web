@@ -1,4 +1,4 @@
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
 export function Home(){
     return (
         <div className={styles.container}>
@@ -8,10 +8,9 @@ export function Home(){
             </div>
 
             <div className={styles.content}>
-                <p>Se você está vendo isso, é porque funcionou!</p>
+                <p>Se você está vendo isso, é pq funcionou!</p>
             </div>
         </div>
-
     );
 }
 //SPA é um único arquivo HTML que usa Virtual DOM para troca de componentes
