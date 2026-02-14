@@ -1,0 +1,78 @@
+.container {
+    color: #EEE;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #c8102e 0%, #000000 50%, #c8102e 100%);
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+
+.title {
+    color: #EEE;
+    background: linear-gradient(135deg, #c8102e 0%, #000000 50%, #c8102e 100%);
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.subtitle {
+    color: #EEE;
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.content {
+    color: #ffffff;
+    background: linear-gradient(135deg, #c8102e 0%, #000000 50%, #c8102e 100%);
+    padding: 20px;
+}
+
+.card {
+    color: #EEE;
+    background: linear-gradient(135deg, #c8102e 0%, #000000 50%, #c8102e 100%);
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    color: #ffffff;
+    margin-top: 0;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #EEE;
+    display: flex;
+    align-items: center;
+}
+
+.list li::before {
+    /*insere um conteudo antes do elemento especificado*/
+    content: '✓™';
+    color: #ffffff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ffffff;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
