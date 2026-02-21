@@ -6,7 +6,6 @@ export function Home(){
                 <h1 className={styles.title}>Bem-vindo à nossa Single Page Application</h1>
                 <p className={styles.subtitle}>Este é um ex. de renderização via componentes</p>
             </header>
-
             <section className={styles.features}>
                 <div className={styles.card}>
                     <h3>Componentes</h3>
