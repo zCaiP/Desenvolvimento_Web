@@ -7,8 +7,7 @@ export default function App() {
     const[user, setUser] = useState(null);
     const[repos, setRepos] = useState([]);
     const[loading, setLoading] = useState(true);
-    const[error, setError] = useState(null);
-    
+    const[error, setError] = useState(null);    
     
     //carrega dados da API
     useEffect(() =>{
@@ -61,7 +60,7 @@ export default function App() {
             <img src={user.avatar_url} alt={user.name} className="avatar"/>
             <div className="user-info">
               <h1>{user.name || user.login}</h1>
-              <p>{user.bio} || {"Sem bio disponível"}</p>
+              <p>{user.bio || "Sem bio"}</p>
               <div className="status">
                 <span><strong>{user.followers}</strong> seguidores</span>
                 <span><strong>{user.following}</strong> seguindo</span>
@@ -80,14 +79,11 @@ export default function App() {
                   <h3>{repo.name}</h3>
                   <p>{repo.description || "Sem descrição"}</p>
                   <div className="repo-footer">
-                    <span> {repo.stargazers_count} </span>
-                    <span> {repo.forks_count} </span>
+                    <span> {repo.stargazers_count} stars</span>
+                    <span> {repo.forks_count} forks</span>
                     <a href= {repo.html_url} target="_blank" rel="noreferrer">
                       Acessar
                     </a>
-
-
-
                   </div>
                 </div>
               ))}
