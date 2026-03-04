@@ -3,7 +3,7 @@ import api from "./services/api";
 import './App.css';
 
 export default function App() {
-    const [username, setUsername] = useState('zCaiP');
+    const [username] = useState('zCaiP');
     const[user, setUser] = useState(null);
     const[repos, setRepos] = useState([]);
     const[loading, setLoading] = useState(true);
