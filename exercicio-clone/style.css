@@ -1,0 +1,33 @@
+:root {
+    --roxo-700: hsl(257, 40%, 49%);
+    --magenta-400: hsl(300, 69%, 71%);
+    --font-titulos: 'Poppins', sans-serif;
+    --font-corpo: 'Open Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-corpo);
+    font-size: 16px;
+    background-color: var(--roxo-700);
+    color: white;
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: var(--font-titulos);
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+@media (min-width: 1440px) {
+    main {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+}
