@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Splitter - Calculadora de Gorjetas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet"/>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+  <body>
+    <header>
+      <img src="assets/logo.svg" alt="SPLITTER"/>
+    </header>
+
+    <main class="calculator-card">
+      <section class="input-section">
+        <div class="input-group">
+          <label for="bill" >Conta</label>
+          <div class="input-wrapper">
+            <img src="assets/icon-dollar.svg" alt="" class="icon"/>
+            <input type="number" id="bill" placeholder="0" step="0.01"/>
+          </div>
+        </div>
+
+        <div class="tip-section">
+          <p>Selecione % de gorjeta</p>
+          <div class="tip-grid">
+            <button type="button" class="tip-btn">5%</button>
+            <button type="button" class="tip-btn">10%</button>
+            <button type="button" class="tip-btn">15%</button>
+            <button type="button" class="tip-btn">25%</button>
+            <button type="button" class="tip-btn">50%</button>
+            <input type="number" id="custom-tip" placeholder="Custom"/>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div class="label-row">
+            <label for="people">Número de pessoas</label>
+            <span class="error-msg" id="error-text">Não pode ser zero</span>
+          </div>
+          <div class="input-wrapper">
+            <img src="assets/icon-person.svg" alt="" class="input-icon">
+            <input type="number" id="people" placeholder="0"/>
+          </div>
+        </div>
+      </section>
+
+      <section class="results-section">
+        <div class="result-row">
+          <div class="result-text">
+            <p class="title">Valor da gorjeta</p>
+            <p class="subtitle">/ pessoa</p>
+          </div>
+          <div class="amount">R$0.00</div>
+        </div>
+
+        <div class="result-row">
+          <div class="result-text">
+            <p class="title">Total</p>
+            <p class="subtitle">/ pessoa</p>
+          </div>
+          <div class="amount">R$0.00</div>
+        </div>
+
+        <button type="button" class="reset-btn">RESET</button>
+      </section>
+    </main>
+  </body>
+</html>
