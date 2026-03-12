@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resetButton = document.querySelector(".reset-btn");
   const errorMsg = document.getElementById("error-text");
 
-  let billValue = 0.0;
+  let billValue = 0;
   let tipValue = 0;
   let peopleValue = 1;
 
@@ -16,7 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!isFinite(value) || isNaN(value)) {
       value = 0;
     }
-    return `R$${value.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    const valueInReais = value / 100;
+    return `R$${valueInReais.toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    })}`;
   };
 
   function calculateAndDisplay() {
@@ -39,7 +43,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function handleBillInput(event) {
-    billValue = parseFloat(event.target.value) || 0;
+    const valueString = event.target.value.replace(",", ".");
+
+    let cents = 0;
+    if (valueString) {
+      const parts = valueString.split(".");
+      const integerPart = parseInt(parts[0], 10) || 0;
+      let decimalPart = 0;
+      if (parts.length > 1 && parts[1]) {
+        const decimalString = parts[1].padEnd(2, "0").substring(0, 2);
+        decimalPart = parseInt(decimalString, 10) || 0;
+      }
+      cents = integerPart * 100 + decimalPart;
+    }
+    billValue = cents;
+
+    if (peopleInput.value === "0") {
+      errorMsg.style.display = "inline";
+      peopleInput.classList.add("error-border");
+    }
     calculateAndDisplay();
     toggleResetButton();
   }
@@ -65,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function handleCustomTipInput(event) {
     tipButtons.forEach((btn) => btn.classList.remove("active"));
-    tipValue = parseFloat(event.target.value) || 0;
+    tipValue = parseFloat(event.target.value.replace(",", ".")) || 0;
     calculateAndDisplay();
     toggleResetButton();
   }
@@ -74,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tipButtons.forEach((btn) => btn.classList.remove("active"));
     event.target.classList.add("active");
     customTipInput.value = "";
-    tipValue = parseFloat(event.target.innerText.replace("%", "")) || 0;
+    tipValue = parseFloat(event.target.dataset.valor) || 0;
     calculateAndDisplay();
     toggleResetButton();
   }
@@ -83,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     billInput.value = "";
     customTipInput.value = "";
     peopleInput.value = "";
-    billValue = 0.0;
+    billValue = 0;
     tipValue = 0;
     peopleValue = 1;
     tipButtons.forEach((btn) => btn.classList.remove("active"));
